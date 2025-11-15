@@ -1,2 +1,102 @@
-# agx
+# `@fartlabs/agx`
+
 agx is a JSX agent development system.
+
+> The Agent component provides a structured way to encapsulate LLM
+> configuration, tools, and behavior into reusable components. It handles the
+> agent loop for you, allowing the LLM to call tools multiple times in sequence
+> to accomplish complex tasks. Define agents once and use them across your
+> application.
+
+## What are Agents?
+
+Agents are **large language models (LLMs)** that use **tools** in a **loop** to
+accomplish tasks.
+
+These components work together:
+
+- **LLMs** process input and decide the next action
+- **Tools** extend capabilities beyond text generation (reading files, calling
+  APIs, writing to databases)
+- **Loop** orchestrates execution through:
+  - **Context management** - Maintaining conversation history and deciding what
+    the model sees (input) at each step
+  - **Stopping conditions** - Determining when the loop (task) is complete
+
+## Why use the Agent component?
+
+The `Agent` component handles these three components for you. It is the
+recommended approach for building agents with agx because it:
+
+- **Reduces boilerplate** - Manages loops and message arrays automatically
+- **Improves reusability** - Define once, use throughout your application
+- **Simplifies maintenance** - Single place to update agent configuration
+- **Type safety** - Get full TypeScript support for your agent's tools and
+  outputs
+
+agx provides a declarative way to build AI agents using JSX syntax and AI SDK
+primitives.
+
+## Creating an Agent
+
+Define an agent by declaring a new component using the `Agent` component with
+your desired configuration.
+
+```tsx
+import { Agent, Tool } from "@fartlabs/agx";
+import { stepCountIs } from "ai";
+import { z } from "zod";
+
+function WeatherAgent() {
+  return (
+    <Agent model="openai/gpt-4o" stopWhen={stepCountIs(20)}>
+      <Tool
+        name="weather"
+        description="Get the weather in a location (in Fahrenheit)"
+        inputSchema={z.object({
+          location: z.string()
+            .describe("The location to get the weather for"),
+        })}
+        execute={({ location }) => ({
+          location,
+          temperature: 72 + Math.floor(Math.random() * 21) - 10,
+        })}
+      />
+      <Tool
+        name="convertFahrenheitToCelsius"
+        description="Convert temperature from Fahrenheit to Celsius"
+        inputSchema={z.object({
+          temperature: z.number()
+            .describe("Temperature in Fahrenheit"),
+        })}
+        execute={({ temperature }) => {
+          const celsius = Math.round((temperature - 32) * (5 / 9));
+          return { celsius };
+        }}
+      />
+    </Agent>
+  );
+}
+
+const weatherAgent = <WeatherAgent />;
+```
+
+## Using an Agent
+
+Once defined, you can integrate the agent into your application.
+
+```tsx
+const result = await weatherAgent.generate({
+  prompt: "What is the weather in San Francisco in celsius?",
+});
+
+console.log(result.text); // agent's final answer
+console.log(result.steps); // steps taken by the agent
+```
+
+For more information on using an instance of the Agent component, see the
+[AI SDK documentation](https://ai-sdk.dev/docs/agents/building-agents#using-an-agent).
+
+---
+
+Developed with 🧪 [**@FartLabs**](https://fartlabs.org)

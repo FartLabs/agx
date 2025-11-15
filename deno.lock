@@ -1,0 +1,117 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@cross/deepmerge@1": "1.0.0",
+    "jsr:@fartlabs/jsonx@^0.0.11": "0.0.11",
+    "jsr:@std/assert@^1.0.15": "1.0.15",
+    "jsr:@std/assert@~0.220.1": "0.220.1",
+    "jsr:@std/encoding@~0.220.1": "0.220.1",
+    "jsr:@std/fs@~0.220.1": "0.220.1",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
+    "jsr:@std/path@~0.220.1": "0.220.1",
+    "npm:ai@^5.0.93": "5.0.93_zod@4.1.12"
+  },
+  "jsr": {
+    "@cross/deepmerge@1.0.0": {
+      "integrity": "1e1318a74e31ba1959b9aa0acae8bd417b806f74ffd25ac07c90e12f83ad6b1d"
+    },
+    "@fartlabs/jsonx@0.0.11": {
+      "integrity": "25e70bc64e680c90f0b91d2e639a04d3e8a7811809282a4b82a27e2862218438",
+      "dependencies": [
+        "jsr:@cross/deepmerge",
+        "jsr:@std/encoding",
+        "jsr:@std/fs",
+        "jsr:@std/path"
+      ]
+    },
+    "@std/assert@0.220.1": {
+      "integrity": "88710d54f3afdd7a5761e7805abba1f56cd14e4b212feffeb3e73a9f77482425"
+    },
+    "@std/assert@1.0.15": {
+      "integrity": "d64018e951dbdfab9777335ecdb000c0b4e3df036984083be219ce5941e4703b",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/encoding@0.220.1": {
+      "integrity": "8dc38dd72e36cd68857a5837e24eb09a64bb296b96c295239c75eec17d45d23f"
+    },
+    "@std/fs@0.220.1": {
+      "integrity": "7fe79c08e9e2ea6818b05f271ddba07eaed7e6dac7ce7cfb35e3f8521aa18fc1",
+      "dependencies": [
+        "jsr:@std/assert@~0.220.1",
+        "jsr:@std/path"
+      ]
+    },
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
+    },
+    "@std/path@0.220.1": {
+      "integrity": "cc63c1b5e5192e2f718dc2f365a3514fffb26cc0380959bab0f8fb5988a52f0c",
+      "dependencies": [
+        "jsr:@std/assert@~0.220.1"
+      ]
+    }
+  },
+  "npm": {
+    "@ai-sdk/gateway@2.0.9_zod@4.1.12": {
+      "integrity": "sha512-E6x4h5CPPPJ0za1r5HsLtHbeI+Tp3H+YFtcH8G3dSSPFE6w+PZINzB4NxLZmg1QqSeA5HTP3ZEzzsohp0o2GEw==",
+      "dependencies": [
+        "@ai-sdk/provider",
+        "@ai-sdk/provider-utils",
+        "@vercel/oidc",
+        "zod"
+      ]
+    },
+    "@ai-sdk/provider-utils@3.0.17_zod@4.1.12": {
+      "integrity": "sha512-TR3Gs4I3Tym4Ll+EPdzRdvo/rc8Js6c4nVhFLuvGLX/Y4V9ZcQMa/HTiYsHEgmYrf1zVi6Q145UEZUfleOwOjw==",
+      "dependencies": [
+        "@ai-sdk/provider",
+        "@standard-schema/spec",
+        "eventsource-parser",
+        "zod"
+      ]
+    },
+    "@ai-sdk/provider@2.0.0": {
+      "integrity": "sha512-6o7Y2SeO9vFKB8lArHXehNuusnpddKPk7xqL7T2/b+OvXMRIXUO1rR4wcv1hAFUAT9avGZshty3Wlua/XA7TvA==",
+      "dependencies": [
+        "json-schema"
+      ]
+    },
+    "@opentelemetry/api@1.9.0": {
+      "integrity": "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="
+    },
+    "@standard-schema/spec@1.0.0": {
+      "integrity": "sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA=="
+    },
+    "@vercel/oidc@3.0.3": {
+      "integrity": "sha512-yNEQvPcVrK9sIe637+I0jD6leluPxzwJKx/Haw6F4H77CdDsszUn5V3o96LPziXkSNE2B83+Z3mjqGKBK/R6Gg=="
+    },
+    "ai@5.0.93_zod@4.1.12": {
+      "integrity": "sha512-9eGcu+1PJgPg4pRNV4L7tLjRR3wdJC9CXQoNMvtqvYNOLZHFCzjHtVIOr2SIkoJJeu2+sOy3hyiSuTmy2MA40g==",
+      "dependencies": [
+        "@ai-sdk/gateway",
+        "@ai-sdk/provider",
+        "@ai-sdk/provider-utils",
+        "@opentelemetry/api",
+        "zod"
+      ]
+    },
+    "eventsource-parser@3.0.6": {
+      "integrity": "sha512-Vo1ab+QXPzZ4tCa8SwIHJFaSzy4R6SHf7BY79rFBDf0idraZWAkYrDjDj8uWaSm3S2TK+hJ7/t1CEmZ7jXw+pg=="
+    },
+    "json-schema@0.4.0": {
+      "integrity": "sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA=="
+    },
+    "zod@4.1.12": {
+      "integrity": "sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@fartlabs/jsonx@^0.0.11",
+      "jsr:@std/assert@^1.0.15",
+      "npm:ai@^5.0.93"
+    ]
+  }
+}
