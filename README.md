@@ -1,17 +1,16 @@
 # `@fartlabs/agx`
 
-> INTEGRATE ANY MODEL PROVIDER WITH A SINGLE API
->
-> FOCUS ON BUILDING THE BEST USER EXPERIENCE
->
-> STAY IN THE FLOW DURING DEVELOPMENT
-
 agx is a JSX agent development system.
 
 ## What are Agents?
 
 Agents are **large language models (LLMs)** that use **tools** until the task is
 complete.
+
+## Why use the Agent component?
+
+agx provides a declarative way to build AI agents using JSX syntax and AI SDK
+primitives.
 
 These components work together:
 
@@ -23,8 +22,6 @@ These components work together:
     the model sees (input) at each step
   - **Stopping conditions** - Determining when the loop (task) is complete
 
-## Why use the Agent component?
-
 The `Agent` component handles these three components for you. It is the
 recommended approach for building agents with agx because it:
 
@@ -33,9 +30,6 @@ recommended approach for building agents with agx because it:
 - **Simplifies maintenance** - Single place to update agent configuration
 - **Type safety** - Get full TypeScript support for your agent's tools and
   outputs
-
-agx provides a declarative way to build AI agents using JSX syntax and AI SDK
-primitives.
 
 ## Creating an Agent
 
